@@ -1,0 +1,219 @@
+/* ============================================================================
+   HabitFlow — стили интерфейса приложения
+   (заменяют неиспользуемые стили шаблона Vite; используются CSS-переменные из index.css)
+   ============================================================================ */
+
+/* ---------- навигация ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.nav a { color: var(--text-h); text-decoration: none; font-weight: 500; }
+.nav a:hover { color: var(--accent); }
+
+.nav__logout {
+  margin-left: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.nav__logout:hover { color: #ff6b6b; border-color: #ff6b6b; }
+
+/* ---------- страница ---------- */
+.page {
+  text-align: left;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header h1 { font-size: 32px; letter-spacing: 0; margin: 0 0 8px; }
+.header__subtitle { opacity: .7; }
+.back-link { color: var(--text-h); text-decoration: none; }
+.back-link:hover { color: var(--accent); }
+
+/* ---------- прогресс-бар ---------- */
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+
+/* ---------- форма привычки ---------- */
+.habit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.habit-form__input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.habit-form__colors { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.habit-form__color {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.habit-form__color--active { box-shadow: 0 0 0 2px var(--text-h); }
+
+.habit-form__days { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.habit-form__day {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.habit-form__day--active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.habit-form__error { color: #ff6b6b; font-size: 13px; margin: 0; }
+
+.habit-form__submit {
+  padding: 11px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+}
+
+.habit-form__submit:hover { filter: brightness(1.1); }
+
+/* ---------- список привычек ---------- */
+.habit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.habit-item__check {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 2px solid;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-item__check:disabled { opacity: .35; cursor: not-allowed; }
+.habit-item__check--done { color: #fff; }
+
+.habit-item__body { flex: 1; text-align: left; }
+.habit-item__name { display: block; font-weight: 500; color: var(--text-h); }
+.habit-item__hint { color: var(--text); opacity: .6; font-size: 12px; }
+
+.habit-item__delete {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.habit-item__delete:hover { color: #ff6b6b; }
+
+/* ---------- пустое состояние ---------- */
+.empty-state { text-align: center; opacity: .7; padding: 24px 0; }
+
+/* ---------- статистика ---------- */
+.stats { display: flex; flex-direction: column; gap: 12px; }
+
+.stats__bar { display: flex; align-items: center; gap: 12px; }
+.stats__label { width: 32px; text-align: right; flex-shrink: 0; }
+.stats__track { flex: 1; height: 12px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.stats__fill { height: 100%; background: var(--accent); border-radius: 999px; }
+.stats__value { width: 48px; text-align: left; flex-shrink: 0; font-size: 13px; }
+
+/* ---------- действия формы (добавлено: режим редактирования) ---------- */
+.habit-form__actions { display: flex; gap: 10px; }
+
+.habit-form__cancel {
+  padding: 11px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+}
+
+.habit-form__cancel:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- кнопка редактирования привычки ---------- */
+.habit-item__edit {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.habit-item__edit:hover { color: var(--accent); }
